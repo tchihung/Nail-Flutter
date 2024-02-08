@@ -7,6 +7,7 @@ class Employee {
   final double promo;
   final double tip;
   final double techTotal;
+  bool status = false;
 
   Employee({
     required this.id,

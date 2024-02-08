@@ -1,6 +1,7 @@
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter/material.dart';
 import 'package:nail/services/employee.dart';
+import 'package:nail/services/employeeList.dart';
 import 'package:nail/services/employee_service.dart';
 import 'package:nail/screens/list_screen.dart';
 
@@ -12,7 +13,7 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  late List<Employee> employeeList;
+  late EmployeeList employeeList;
   @override
   void initState() {
     super.initState();
@@ -24,7 +25,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         apiUrl: 'https://run.mocky.io/v3/91589efb-813c-4dc8-b015-5732e41aad33');
     final employees = await employeeService.getEmployees();
     setState(() {
-      employeeList = employees;
+      employeeList = EmployeeList(employeeList: employees);
       Navigator.push(
         context,
         MaterialPageRoute(
